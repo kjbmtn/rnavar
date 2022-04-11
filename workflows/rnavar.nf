@@ -19,8 +19,8 @@ def checkPathParamList = [
     params.gff,
     params.dbsnp,
     params.dbsnp_tbi,
-    params.known_indels,
-    params.known_indels_tbi,
+    // params.known_indels,
+    // params.known_indels_tbi,
     params.snpeff_cache,
     params.vep_cache,
     params.star_index]
@@ -239,8 +239,8 @@ workflow RNAVAR {
         if(!params.skip_baserecalibration) {
             // MODULE: BaseRecalibrator from GATK4
             ch_bqsr_table = Channel.empty()
-            known_sites     = Channel.from([params.dbsnp, params.known_indels]).collect()
-            known_sites_tbi = Channel.from([params.dbsnp_tbi, params.known_indels_tbi]).collect()
+            known_sites     = Channel.from([params.dbsnp]).collect()
+            known_sites_tbi = Channel.from([params.dbsnp_tbi]).collect()
 
             ch_interval_list_recalib = ch_interval_list.map{ meta, bed -> [bed] }.flatten()
             splitncigar_bam_bai.combine(ch_interval_list_recalib)

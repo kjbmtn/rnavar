@@ -20,10 +20,10 @@ class WorkflowRnavar {
             System.exit(1)
         }
 
-        if ((!params.skip_baserecalibration) && (!params.known_indels || !params.known_indels_tbi)) {
-            log.error "Known variants VCF file or its index is missing!. Use --known_indels and --known_indels_tbi to supply the files."
-            System.exit(1)
-        }
+        // if ((!params.skip_baserecalibration) && (!params.known_indels || !params.known_indels_tbi)) {
+        //     log.error "Known variants VCF file or its index is missing!. Use --known_indels and --known_indels_tbi to supply the files."
+        //     System.exit(1)
+        // }
 
     }
 
